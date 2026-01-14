@@ -1,0 +1,21 @@
+{
+    "name": "fikar/phpnusantara",
+    "description": "Helper PHP untuk kebutuhan aplikasi Indonesia",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "PHPNusantara\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Fikar Dwi Ramadhani",
+            "email": "fikardwiramadhani@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.4"
+    }
+}
