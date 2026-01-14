@@ -62,7 +62,6 @@ PHPNUSANTARA/
 │ ├── Terbilang.php
 │ └── Waktu.php
 │
-├── PHPNusantara.php
 ├── composer.json
 └── README.md
 ```
