@@ -1,6 +1,6 @@
 # PHPNusantara
 
-Library PHP sederhana berisi kumpulan helper berbahasa Indonesia untuk kebutuhan format **Rupiah, Tanggal, Waktu, Terbilang**, dan **Waktu Relatif**.
+Library PHP sederhana berisi kumpulan helper berbahasa Indonesia untuk kebutuhan format **Rupiah, Tanggal, Waktu, Terbilang**, dan **Waktu Relatif** Dll.
 
 ---
 
