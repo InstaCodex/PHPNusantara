@@ -1,3 +1,6 @@
+## 📂 Struktur Folder
+
+```text
 PHPNusantara/
 ├── src/
 │   ├── App/
@@ -9,4 +12,4 @@ PHPNusantara/
 │       └── Waktu.php
 │
 ├── composer.json
-├── README.md
+└── README.md
