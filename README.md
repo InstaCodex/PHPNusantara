@@ -45,16 +45,24 @@ ci4-project/
 ## 📂 Struktur Folder
 
 ```text
-PHPNusantara/
+PHPNUSANTARA/
 ├── src/
-│   ├── App/
-│   │   └── WaktuRelatif.php
-│   └── Formatter/
-│       ├── Rupiah.php
-│       ├── Tanggal.php
-│       ├── Terbilang.php
-│       └── Waktu.php
+│ ├── App/
+│ │ ├── Bulan.php
+│ │ ├── Response.php
+│ │ └── WaktuRelatif.php
+│ │
+│ ├── Bahasa/
+│ │ └── StringHelper.php
+│ │
+│ └── Formatter/
+│ ├── Angka.php
+│ ├── Rupiah.php
+│ ├── Tanggal.php
+│ ├── Terbilang.php
+│ └── Waktu.php
 │
+├── PHPNusantara.php
 ├── composer.json
 └── README.md
 ```
