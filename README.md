@@ -45,7 +45,7 @@ ci4-project/
 ## 📂 Struktur Folder
 
 ```text
-PHPNUSANTARA/
+PHPNusantara/
 ├── src/
 │ ├── App/
 │ │ ├── Bulan.php
