@@ -12,6 +12,16 @@ class Terbilang
 
     public static function buat($nilai)
     {
+        if (!is_numeric($nilai)) return '';
+
+        if ($nilai == 0) {
+            return 'Nol';
+        }
+
+        if ($nilai < 0) {
+            return 'Minus ' . self::buat(abs($nilai));
+        }
+
         if ($nilai < 12) {
             return self::$angka[$nilai];
         } elseif ($nilai < 20) {

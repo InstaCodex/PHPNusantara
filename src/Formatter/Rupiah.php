@@ -4,12 +4,14 @@ namespace PHPNusantara\Formatter;
 
 class Rupiah
 {
-    public static function format($angka)
+    public static function format($angka, $desimal = 0, $simbol = true)
     {
         if (!is_numeric($angka)) {
-            return 'Rp 0';
+            $angka = 0;
         }
 
-        return 'Rp ' . number_format($angka, 0, ',', '.');
+        $hasil = number_format($angka, $desimal, ',', '.');
+
+        return $simbol ? 'Rp ' . $hasil : $hasil;
     }
 }

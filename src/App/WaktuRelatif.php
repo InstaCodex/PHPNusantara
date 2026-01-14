@@ -6,34 +6,29 @@ class WaktuRelatif
 {
     public static function dariSekarang($waktu)
     {
-        if (!$waktu) {
-            return '-';
-        }
+        if (!$waktu) return '-';
 
         $timestamp = strtotime($waktu);
-
-        if (!$timestamp) {
-            return '-';
-        }
+        if (!$timestamp) return '-';
 
         $selisih = time() - $timestamp;
+        $abs     = abs($selisih);
 
-        if ($selisih < 60) {
+        if ($abs < 60) {
             return 'Baru saja';
         }
 
-        if ($selisih < 3600) {
-            return floor($selisih / 60) . ' menit lalu';
+        if ($abs < 3600) {
+            $menit = floor($abs / 60);
+            return $selisih > 0 ? "$menit menit lalu" : "$menit menit lagi";
         }
 
-        if ($selisih < 86400) {
-            return floor($selisih / 3600) . ' jam lalu';
+        if ($abs < 86400) {
+            $jam = floor($abs / 3600);
+            return $selisih > 0 ? "$jam jam lalu" : "$jam jam lagi";
         }
 
-        if ($selisih < 604800) {
-            return floor($selisih / 86400) . ' hari lalu';
-        }
-
-        return date('d-m-Y H:i', $timestamp);
+        $hari = floor($abs / 86400);
+        return $selisih > 0 ? "$hari hari lalu" : "$hari hari lagi";
     }
 }

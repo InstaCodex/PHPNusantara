@@ -2,22 +2,19 @@
 
 namespace PHPNusantara\Formatter;
 
+use PHPNusantara\App\Bulan;
+
 class Tanggal
 {
     public static function indo($tanggal)
     {
-        if (!$tanggal) {
-            return '-';
-        }
+        if (!$tanggal) return '-';
 
-        $bulan = [
-            1 => 'Januari', 'Februari', 'Maret', 'April',
-            'Mei', 'Juni', 'Juli', 'Agustus',
-            'September', 'Oktober', 'November', 'Desember'
-        ];
+        $time = strtotime($tanggal);
+        if (!$time) return '-';
 
-        $pecah = explode('-', date('Y-m-d', strtotime($tanggal)));
-
-        return $pecah[2] . ' ' . $bulan[(int) $pecah[1]] . ' ' . $pecah[0];
+        return date('d', $time) . ' ' .
+               Bulan::nama(date('m', $time)) . ' ' .
+               date('Y', $time);
     }
 }

@@ -2,52 +2,50 @@
 
 namespace PHPNusantara\Formatter;
 
+use PHPNusantara\App\Bulan;
+
 class Waktu
 {
     public static function jamMenit($waktu)
     {
-        if (!$waktu) return '-';
-
-        return date('H:i', strtotime($waktu));
+        return $waktu ? date('H:i', strtotime($waktu)) : '-';
     }
 
     public static function lengkap($waktu)
     {
-        if (!$waktu) return '-';
-
-        return date('H:i:s', strtotime($waktu));
+        return $waktu ? date('H:i:s', strtotime($waktu)) : '-';
     }
 
     public static function tanggalJamIndo($waktu)
     {
         if (!$waktu) return '-';
 
-        $bulan = [
-            1 => 'Januari', 'Februari', 'Maret', 'April',
-            'Mei', 'Juni', 'Juli', 'Agustus',
-            'September', 'Oktober', 'November', 'Desember'
-        ];
+        $time = strtotime($waktu);
+        if (!$time) return '-';
 
-        $tanggal = date('Y-m-d', strtotime($waktu));
-        $jam     = date('H:i', strtotime($waktu));
-
-        $pecah = explode('-', $tanggal);
-
-        return $pecah[2] . ' ' .
-               $bulan[(int) $pecah[1]] . ' ' .
-               $pecah[0] . ' ' .
-               $jam;
+        return date('d', $time) . ' ' .
+               Bulan::nama(date('m', $time)) . ' ' .
+               date('Y', $time) . ' ' .
+               date('H:i', $time);
     }
 
-    public static function selisih($awal, $akhir)
+    public static function selisihDetik($awal, $akhir)
     {
-        $awal  = strtotime($awal);
-        $akhir = strtotime($akhir);
+        return abs(strtotime($akhir) - strtotime($awal));
+    }
 
-        if (!$awal || !$akhir) {
-            return 0;
-        }
+    public static function selisihMenit($awal, $akhir)
+    {
+        return floor(self::selisihDetik($awal, $akhir) / 60);
+    }
 
-        return abs($akhir - $awal);
+    public static function selisihJam($awal, $akhir)
+    {
+        return floor(self::selisihDetik($awal, $akhir) / 3600);
+    }
+
+    public static function selisihHari($awal, $akhir)
+    {
+        return floor(self::selisihDetik($awal, $akhir) / 86400);
     }
 }
