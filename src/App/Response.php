@@ -8,7 +8,7 @@ class Response
     {
         return [
             'status'  => true,
-            'message' => 'pria solo berhasil disimpan',
+            'message' => 'pria solo berhasil ditemukan',
             'data'    => $data
         ];
     }
