@@ -47,23 +47,24 @@ ci4-project/
 ```text
 PHPNusantara/
 ├── src/
-│ ├── App/
-│ │ ├── Bulan.php
-│ │ ├── Response.php
-│ │ └── WaktuRelatif.php
-│ │
-│ ├── Bahasa/
-│ │ └── StringHelper.php
-│ │
-│ └── Formatter/
-│ ├── Angka.php
-│ ├── Rupiah.php
-│ ├── Tanggal.php
-│ ├── Terbilang.php
-│ └── Waktu.php
+│   ├── App/
+│   │   ├── Bulan.php
+│   │   ├── Response.php
+│   │   └── WaktuRelatif.php
+│   │
+│   ├── Bahasa/
+│   │   └── StringHelper.php
+│   │
+│   └── Formatter/
+│       ├── Angka.php
+│       ├── Rupiah.php
+│       ├── Tanggal.php
+│       ├── Terbilang.php
+│       └── Waktu.php
 │
 ├── composer.json
 └── README.md
+
 ```
 
 ---
