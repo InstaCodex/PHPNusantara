@@ -4,18 +4,6 @@ Library PHP sederhana berisi kumpulan helper berbahasa Indonesia untuk kebutuhan
 
 ---
 
-## 📦 Instalasi
-
-### 1️⃣ Download Repository
-
-Buka repository GitHub berikut:
-
-👉 [https://github.com/InstaCodex/PHPNusantara](https://github.com/InstaCodex/PHPNusantara)
-
-Klik **Code → Download ZIP**, lalu ekstrak file tersebut.
-
----
-
 ## 📁 Lokasi Penempatan
 
 Letakkan folder **PHPNusantara** ke dalam folder `vendor/` pada project Anda.
