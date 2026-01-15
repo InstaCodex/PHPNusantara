@@ -28,24 +28,27 @@ class Waktu
                date('Y', $time) . ' ' .
                date('H:i', $time);
     }
-
     public static function selisihDetik($awal, $akhir)
     {
-        return abs(strtotime($akhir) - strtotime($awal));
+        $detik = abs(strtotime($akhir) - strtotime($awal));
+        return $detik . ' detik';
     }
 
     public static function selisihMenit($awal, $akhir)
     {
-        return floor(self::selisihDetik($awal, $akhir) / 60);
+        $menit = floor(abs(strtotime($akhir) - strtotime($awal)) / 60);
+        return $menit . ' menit';
     }
 
     public static function selisihJam($awal, $akhir)
     {
-        return floor(self::selisihDetik($awal, $akhir) / 3600);
+        $jam = floor(abs(strtotime($akhir) - strtotime($awal)) / 3600);
+        return $jam . ' jam';
     }
 
     public static function selisihHari($awal, $akhir)
     {
-        return floor(self::selisihDetik($awal, $akhir) / 86400);
+        $hari = floor(abs(strtotime($akhir) - strtotime($awal)) / 86400);
+        return $hari . ' hari';
     }
 }

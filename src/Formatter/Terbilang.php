@@ -1,5 +1,4 @@
 <?php
-
 namespace PHPNusantara\Formatter;
 
 class Terbilang
@@ -14,8 +13,10 @@ class Terbilang
     {
         if (!is_numeric($nilai)) return '';
 
+        $nilai = (int) $nilai;
+
         if ($nilai == 0) {
-            return 'Nol';
+            return '';
         }
 
         if ($nilai < 0) {
@@ -35,9 +36,18 @@ class Terbilang
         } elseif ($nilai < 2000) {
             return 'Seribu ' . self::buat($nilai - 1000);
         } elseif ($nilai < 1000000) {
-            return self::buat((int) ($nilai / 1000)) . ' Ribu ' . self::buat($nilai % 1000);
+            $ribu = (int) ($nilai / 1000);
+            $sisa = $nilai % 1000;
+
+            $hasil = self::buat($ribu) . ' Ribu';
+            if ($sisa > 0) {
+                $hasil .= ' ' . self::buat($sisa);
+            }
+
+            return trim($hasil);
         }
 
         return 'Nilai Terlalu Besar';
     }
 }
+
