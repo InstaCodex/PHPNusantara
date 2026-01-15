@@ -3,6 +3,15 @@
 Library PHP sederhana berisi kumpulan helper berbahasa Indonesia untuk kebutuhan format **Rupiah, Tanggal, Waktu, Terbilang**, dan **Waktu Relatif** Dll.
 
 ---
+## 📦 Instalasi
+
+### ✅ Menggunakan Composer (Khusus Framework)
+
+Library ini **sudah mendukung instalasi melalui Composer**, **hanya untuk framework berbasis Composer** seperti **Laravel** dan **CodeIgniter 4**.
+
+```bash
+composer require instacodex/phpnusantara
+```
 
 ## 📁 Lokasi Penempatan
 
@@ -55,15 +64,20 @@ PHPNusantara/
 │   ├── Bahasa/
 │   │   └── StringHelper.php
 │   │
-│   └── Formatter/
-│       ├── Angka.php
-│       ├── Rupiah.php
-│       ├── Tanggal.php
-│       ├── Terbilang.php
-│       └── Waktu.php
+│   ├── Formatter/
+│   │   ├── Angka.php
+│   │   ├── Persentase.php
+│   │   ├── Rupiah.php
+│   │   ├── Tanggal.php
+│   │   ├── Terbilang.php
+│   │   └── Waktu.php
+│   │
+│   └── Identity/
+│       └── Email.php
 │
 ├── composer.json
 └── README.md
+
 
 ```
 
