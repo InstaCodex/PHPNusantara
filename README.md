@@ -127,6 +127,9 @@ echo Terbilang::buat(2500);
 
 ---
 
+## 📖 Read Documentation
+👉 https://github.com/InstaCodex/DocumentationPHPNusantara
+
 ## ✨ Catatan
 
 * Library ini **tidak bergantung Composer** (manual include).
