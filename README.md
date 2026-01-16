@@ -73,7 +73,9 @@ PHPNusantara/
 │   │   └── Waktu.php
 │   │
 │   └── Identity/
-│       └── Email.php
+│       ├── Email.php
+│       ├── Nik.php
+│       └── Telepon.php
 │
 ├── composer.json
 └── README.md
