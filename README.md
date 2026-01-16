@@ -10,7 +10,7 @@ Library PHP sederhana berisi kumpulan helper berbahasa Indonesia untuk kebutuhan
 Library ini **sudah mendukung instalasi melalui Composer**, **hanya untuk framework berbasis Composer** seperti **Laravel** dan **CodeIgniter 4**.
 
 ```bash
-composer require instacodex/phpnusantara
+composer require fikar/phpnusantara
 ```
 
 ## 📁 Lokasi Penempatan
