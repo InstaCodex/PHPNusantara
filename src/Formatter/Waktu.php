@@ -8,47 +8,95 @@ class Waktu
 {
     public static function jamMenit($waktu)
     {
-        return $waktu ? date('H:i', strtotime($waktu)) : '-';
+        $time = self::toTime($waktu);
+        return $time ? date('H:i', $time) : '-';
     }
 
     public static function lengkap($waktu)
     {
-        return $waktu ? date('H:i:s', strtotime($waktu)) : '-';
+        $time = self::toTime($waktu);
+        return $time ? date('H:i:s', $time) : '-';
     }
 
     public static function tanggalJamIndo($waktu)
     {
-        if (!$waktu) return '-';
-
-        $time = strtotime($waktu);
+        $time = self::toTime($waktu);
         if (!$time) return '-';
 
         return date('d', $time) . ' ' .
-               Bulan::nama(date('m', $time)) . ' ' .
+               Bulan::nama(date('n', $time)) . ' ' .
                date('Y', $time) . ' ' .
                date('H:i', $time);
     }
-    public static function selisihDetik($awal, $akhir)
+
+    public static function sekarang()
     {
-        $detik = abs(strtotime($akhir) - strtotime($awal));
-        return $detik . ' detik';
+        return date('H:i:s');
     }
 
-    public static function selisihMenit($awal, $akhir)
+    public static function jam($waktu)
     {
-        $menit = floor(abs(strtotime($akhir) - strtotime($awal)) / 60);
-        return $menit . ' menit';
+        $time = self::toTime($waktu);
+        return $time ? date('H', $time) : '-';
     }
 
-    public static function selisihJam($awal, $akhir)
+    public static function menit($waktu)
     {
-        $jam = floor(abs(strtotime($akhir) - strtotime($awal)) / 3600);
-        return $jam . ' jam';
+        $time = self::toTime($waktu);
+        return $time ? date('i', $time) : '-';
     }
 
-    public static function selisihHari($awal, $akhir)
+    public static function db($waktu)
     {
-        $hari = floor(abs(strtotime($akhir) - strtotime($awal)) / 86400);
+        $time = self::toTime($waktu);
+        return $time ? date('Y-m-d H:i:s', $time) : null;
+    }
+
+    public static function selisih($awal, $akhir, $satuan = 'detik')
+    {
+        $tAwal  = self::toTime($awal);
+        $tAkhir = self::toTime($akhir);
+
+        if (!$tAwal || !$tAkhir) return 0;
+
+        $detik = abs($tAkhir - $tAwal);
+
+        switch ($satuan) {
+            case 'menit': return floor($detik / 60);
+            case 'jam':   return floor($detik / 3600);
+            case 'hari':  return floor($detik / 86400);
+            default:      return $detik;
+        }
+    }
+
+    public static function selisihRelatif($awal, $akhir)
+    {
+        $detik = self::selisih($awal, $akhir, 'detik');
+
+        if ($detik < 60) {
+            return $detik . ' detik';
+        }
+
+        if ($detik < 3600) {
+            $menit = floor($detik / 60);
+            return $menit . ' menit';
+        }
+
+        if ($detik < 86400) {
+            $jam = floor($detik / 3600);
+            return $jam . ' jam';
+        }
+
+        $hari = floor($detik / 86400);
         return $hari . ' hari';
+    }
+
+    protected static function toTime($waktu)
+    {
+        if (!$waktu) return false;
+
+        return is_numeric($waktu)
+            ? (int) $waktu
+            : strtotime($waktu);
     }
 }
